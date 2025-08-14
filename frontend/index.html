@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Análise de Feedbacks</title>
+    <meta name="description" content="Dashboard interativo para análise de sentimentos, temas e palavras-chave em feedbacks.">
+    <meta property="og:title" content="Análise de Feedbacks">
+    <meta property="og:description" content="Dashboard interativo para análise de sentimentos, temas e palavras-chave.">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
+</head>
+<body>
+
+    <div class="container">
+        <header class="hero">
+            <div class="toolbar">
+                <a class="howto" href="index.html" title="Dashboard" style="opacity: 0.3; pointer-events: none;">← Voltar</a>
+                <a class="howto" href="como-usar.html" title="Como usar">Como usar</a>
+            </div>
+            <div class="hero-content">
+                <h1>Dashboard de Análise de Feedbacks</h1>
+                <p class="subtitle">Resumo visual de sentimentos, temas mais citados e palavras-chave geradas a partir dos seus feedbacks.</p>
+            </div>
+        </header>
+        
+        <div class="input-area">
+            <div class="input-controls">
+                <div class="textarea-container">
+                    <textarea id="feedbacks-textarea" placeholder="Cole os feedbacks aqui, um por linha..."></textarea>
+                </div>
+                <div class="button-row">
+                    <button id="analyze-button">
+                        <span class="btn-label">Analisar</span>
+                        <span class="btn-spinner" aria-hidden="true"></span>
+                    </button>
+                    <div class="file-upload-container">
+                        <input type="file" id="file-input" class="file-input" accept=".txt,.csv" />
+                        <label for="file-input" class="file-label">
+                            📁 Importar
+                        </label>
+                        <div class="file-info">TXT ou CSV</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="loading" class="hidden status-message">Analisando...</div>
+        <div id="error" class="hidden status-message error-message"></div>
+        
+<div id="dashboard" class="hidden">
+            
+            <div id="sentiment-container" class="card">
+                <h2>Sentimentos</h2>
+                <div class="chart-wrapper">
+                    <canvas id="sentiment-chart"></canvas>
+                </div>
+            </div>
+
+            <div id="themes-container" class="card">
+                <h2>Frequência de Temas</h2>
+                <div class="chart-wrapper">
+                    <canvas id="themes-chart"></canvas>
+                </div>
+            </div>
+
+            <div id="words-container" class="card">
+                <h2>Top 10 Palavras</h2>
+                <div class="chart-wrapper">
+                    <canvas id="words-chart"></canvas>
+                </div>
+            </div>
+
+            <div id="positive-examples-container" class="card">
+                <h3>Exemplos Positivos <span class="badge badge-positive">+ Positivo</span></h3>
+                <div id="positive-examples"></div>
+            </div>
+            
+            <div id="negative-examples-container" class="card">
+                <h3>Exemplos Negativos <span class="badge badge-negative">− Negativo</span></h3>
+                <div id="negative-examples"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

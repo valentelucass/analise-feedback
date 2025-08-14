@@ -1,0 +1,34 @@
+# Environments
+.venv/
+venv/
+env/
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# OS/Editor
+.DS_Store
+Thumbs.db
+*.log
+.vscode/
+.idea/
+
+# Vercel
+.vercel/
+
+# Builds
+dist/
+build/
+
+# Node (optional)
+node_modules/
+
+# Archives
+*.zip
+*.tar
+*.tar.gz
+Análise de feedbacks.zip
+.Análise de feedbacks.zip

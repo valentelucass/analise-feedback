@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Como usar - Análise de Feedbacks</title>
+    <meta name="description" content="Guia completo de como usar o Dashboard de Análise de Feedbacks.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="container">
+        <header class="hero">
+            <div class="toolbar">
+                <a class="howto" href="index.html" title="Voltar ao Dashboard">← Voltar</a>
+                <a class="howto" href="como-usar.html" title="Como usar" style="opacity: 0.3; pointer-events: none;">Como usar</a>
+            </div>
+            <div class="hero-content">
+                <h1>📋 Como usar este Dashboard</h1>
+                <p class="subtitle">Guia completo para analisar seus feedbacks de forma rápida e eficiente.</p>
+            </div>
+        </header>
+        
+        <div class="section">
+            <div style="display: grid; gap: 2.5rem; margin-top: 2rem;">
+                <div class="usage-step">
+                    <h2>1️⃣ Prepare seus feedbacks</h2>
+                    <p>Organize seus feedbacks de uma das seguintes formas:</p>
+                    <ul>
+                        <li><strong>Texto direto:</strong> Cole na caixa de texto, um feedback por linha</li>
+                        <li><strong>Arquivo TXT:</strong> Salve seus feedbacks em um arquivo .txt (um por linha)</li>
+                        <li><strong>Arquivo CSV:</strong> Use uma planilha com feedbacks em uma coluna</li>
+                    </ul>
+                    
+                    <div style="background: rgba(40,167,69,0.1); border: 1px solid rgba(40,167,69,0.3); border-radius: 12px; padding: 1.5rem; margin-top: 1.5rem;">
+                        <strong>💡 Exemplo de formato correto:</strong>
+                        <pre style="margin-top: 1rem; background: rgba(0,0,0,0.2); padding: 1rem; border-radius: 8px; font-size: 0.9rem; line-height: 1.4;">Produto chegou rápido e bem embalado
+Atendimento foi péssimo, demorou muito
+Preço justo e qualidade excelente
+Entrega atrasou 3 dias sem aviso
+Site fácil de usar, recomendo
+Produto com defeito, tive que trocar</pre>
+                    </div>
+                </div>
+
+                <div class="usage-step">
+                    <h2>2️⃣ Insira os dados</h2>
+                    <p>Escolha uma das opções disponíveis:</p>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 1rem;">
+                        <div style="background: rgba(0,123,255,0.1); border: 1px solid rgba(0,123,255,0.3); border-radius: 12px; padding: 1.25rem;">
+                            <h3 style="margin-top: 0; color: #7ab6ff;">✍️ Digitação/Cola</h3>
+                            <p style="margin-bottom: 0;">Cole o texto diretamente na caixa de entrada. Cada linha será tratada como um feedback separado.</p>
+                        </div>
+                        <div style="background: rgba(255,193,7,0.1); border: 1px solid rgba(255,193,7,0.3); border-radius: 12px; padding: 1.25rem;">
+                            <h3 style="margin-top: 0; color: #ffc107;">📁 Upload de Arquivo</h3>
+                            <p style="margin-bottom: 0;">Clique em "📁 Importar" e selecione seu arquivo TXT ou CSV com os feedbacks.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="usage-step">
+                    <h2>3️⃣ Analise os resultados</h2>
+                    <p>Clique em <strong>"Analisar"</strong> e visualize os insights gerados automaticamente:</p>
+                    
+                    <div style="display: grid; gap: 1.5rem; margin-top: 1.5rem;">
+                        <div class="result-card">
+                            <h3>📊 Análise de Sentimentos</h3>
+                            <p>Gráfico de rosca mostrando a distribuição percentual de feedbacks:</p>
+                            <ul>
+                                <li><span style="color: #28a745;">●</span> <strong>Positivos:</strong> Feedbacks com sentimento favorável</li>
+                                <li><span style="color: #dc3545;">●</span> <strong>Negativos:</strong> Feedbacks com sentimento desfavorável</li>
+                                <li><span style="color: #6c757d;">●</span> <strong>Neutros:</strong> Feedbacks sem polaridade clara</li>
+                            </ul>
+                        </div>
+
+                        <div class="result-card">
+                            <h3>🏷️ Frequência de Temas</h3>
+                            <p>Gráfico de barras com a contagem de menções dos principais temas:</p>
+                            <ul>
+                                <li><strong>Entrega:</strong> Comentários sobre prazo, rapidez, atraso</li>
+                                <li><strong>Produto:</strong> Qualidade, defeitos, características</li>
+                                <li><strong>Atendimento:</strong> Suporte, cordialidade, eficiência</li>
+                                <li><strong>Preço:</strong> Valor, custo-benefício, promoções</li>
+                            </ul>
+                        </div>
+
+                        <div class="result-card">
+                            <h3>🔤 Top 10 Palavras</h3>
+                            <p>Palavras mais frequentes nos feedbacks (excluindo artigos, preposições e conectivos).</p>
+                        </div>
+
+                        <div class="result-card">
+                            <h3>💬 Exemplos Reais</h3>
+                            <p>Amostras dos feedbacks mais representativos:</p>
+                            <ul>
+                                <li><strong>Positivos:</strong> Até 3 exemplos dos feedbacks mais favoráveis</li>
+                                <li><strong>Negativos:</strong> Até 3 exemplos dos feedbacks mais críticos</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card dev-card">
+                <h2>🚀 Para desenvolvedores</h2>
+
+                <div class="dev-grid">
+                    <div>
+                        <h3>Instalação local</h3>
+                        <pre><code>npm i -g vercel
+python -m venv .venv
+.\.venv\Scripts\activate
+pip install -r requirements.txt</code></pre>
+                    </div>
+
+                    <div>
+                        <h3>Executar localmente</h3>
+                        <pre><code># Frontend (Vercel)
+vercel dev
+
+# Backend (Flask)
+set FLASK_APP=api.index:app && set FLASK_DEBUG=1 && python -m flask run --port 5001</code></pre>
+                    </div>
+
+                    <div>
+                        <h3>Deploy para produção</h3>
+                        <pre><code>vercel --prod</code></pre>
+                    </div>
+
+                    <div class="dev-tech">
+                        <p><strong>🛠️ Tecnologias:</strong> Python + Flask, NLTK, VADER Sentiment, Chart.js, HTML5/CSS3/JavaScript</p>
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 3rem; padding: 2rem; background: rgba(255,255,255,0.05); border-radius: 16px;">
+                <h3>Pronto para começar?</h3>
+                <p class="muted">Volte ao dashboard e comece a analisar seus feedbacks agora mesmo!</p>
+                <a href="index.html" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 1rem 2rem; background: linear-gradient(135deg, var(--accent-color), var(--accent-600)); color: white; text-decoration: none; border-radius: 12px; font-weight: 600; transition: all 0.3s ease; box-shadow: 0 4px 16px -4px rgba(0,123,255,0.3);">
+                    ← Voltar ao Dashboard
+                </a>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
