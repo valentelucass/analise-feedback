@@ -21,6 +21,8 @@ pre {
     border-radius: 10px;
     padding: 1rem;
     overflow: auto;
+    white-space: pre-wrap; /* permite quebra de linha em dispositivos estreitos */
+    word-break: break-word;
 }
 
 code { color: #cbd5e1; }
@@ -61,6 +63,8 @@ body {
     padding: 0 2rem 2rem 2rem;
     min-height: 100%;
     position: relative;
+    max-width: 100%;
+    overflow-x: hidden; /* evita deslocamento horizontal no mobile */
 }
 
 /* Full-bleed background overlay */
@@ -475,6 +479,31 @@ button#analyze-button.loading .btn-spinner { display: inline-block; }
     padding: 0.75rem 1rem;
 }
 
+/* --- Utilitários de Grid para a página "Como usar" --- */
+.howto-grid { /* wrapper de seções em "como-usar" */
+    display: grid;
+    gap: 2.5rem;
+    margin-top: 2rem;
+}
+
+.howto-2 { /* duas colunas no desktop, 1 no mobile */
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.grid-gap { /* grid simples com apenas espaçamento */
+    display: grid;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+/* Evita que conteúdos longos estourem a largura */
+p, li, code {
+    overflow-wrap: anywhere;
+}
+
 @media (max-width: 768px) {
     .dev-grid { grid-template-columns: 1fr; }
     .dev-card { padding: 1.25rem; }
@@ -516,8 +545,10 @@ button#analyze-button.loading .btn-spinner { display: inline-block; }
     }
     
     h1 { 
-        font-size: 2rem;
-        margin-bottom: 1.5rem;
+        font-size: 1.8rem;
+        line-height: 1.2;
+        margin-bottom: 1rem;
+        letter-spacing: -0.01em;
     }
     
     .hero { 
@@ -526,16 +557,27 @@ button#analyze-button.loading .btn-spinner { display: inline-block; }
     }
     
     .toolbar {
-        flex-direction: column;
+        flex-direction: row; /* manter em uma linha no mobile */
         gap: 0.75rem;
         align-items: center;
-        text-align: center;
+        justify-content: space-between; /* Voltar à esquerda, Como usar à direita */
+        width: 100%;
+        text-align: left;
+    }
+
+    .toolbar .howto {
+        font-size: 0.95rem;
+        padding: 0.25rem 0.25rem; /* área de toque sem quebrar layout */
     }
     
     .subtitle {
-        font-size: 0.9rem;
-        line-height: 1.4;
+        font-size: 0.95rem;
+        line-height: 1.5;
+        margin-top: 0.25rem;
     }
+
+    h2 { font-size: 1.15rem; }
+    h3 { font-size: 1.05rem; }
     
     .input-area {
         padding: 1.25rem;
@@ -599,6 +641,11 @@ button#analyze-button.loading .btn-spinner { display: inline-block; }
         margin-top: 2rem;
         padding: 1.25rem;
     }
+
+    /* Como-usar: força 1 coluna no mobile */
+    .howto-2 {
+        grid-template-columns: 1fr;
+    }
 }
 
 @media (max-width: 480px) {
@@ -607,8 +654,9 @@ button#analyze-button.loading .btn-spinner { display: inline-block; }
     }
     
     h1 {
-        font-size: 1.75rem;
+        font-size: 1.5rem;
         line-height: 1.2;
+        margin-bottom: 0.75rem;
     }
     
     .hero {
@@ -680,11 +728,11 @@ button#analyze-button.loading .btn-spinner { display: inline-block; }
     }
     
     h2 {
-        font-size: 1.1rem;
+        font-size: 1.05rem;
     }
     
     h3 {
-        font-size: 1rem;
+        font-size: 0.95rem;
     }
     
     .example-feedback {

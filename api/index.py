@@ -45,6 +45,56 @@ CORS(app)
 # Instancia o analisador de sentimento uma única vez para reutilização.
 analyzer = SentimentIntensityAnalyzer()
 
+# Léxico PT-BR customizado para VADER (inclui variantes sem acento).
+# Observação: o VADER funciona melhor em inglês; este dicionário amplia
+# a cobertura para português com termos comuns em feedbacks.
+custom_pt_lexicon = {
+    # Negativos fortes
+    "odiei": -3.2, "odeio": -3.2, "odiar": -2.8,
+    "horrível": -3.0, "horrivel": -3.0,
+    "péssimo": -3.0, "pessimo": -3.0, "péssima": -3.0, "pessima": -3.0,
+    "terrível": -2.8, "terrivel": -2.8,
+    "pior": -2.6, "lixo": -2.6,
+    "decepcionado": -2.4, "decepcionada": -2.4, "decepção": -2.4, "decepcao": -2.4,
+    "insatisfeito": -2.3, "insatisfeita": -2.3, "insatisfação": -2.3, "insatisfacao": -2.3,
+    "frustrado": -2.3, "frustrada": -2.3, "frustração": -2.3, "frustracao": -2.3,
+    "ruim": -2.2, "horrendo": -2.2, "horrenda": -2.2,
+    "caro": -1.8, "caríssima": -2.0, "carissimo": -2.0, "carissima": -2.0, "caríssima": -2.0,
+    "lento": -2.0, "lenta": -2.0, "lentidão": -2.0, "lentidao": -2.0,
+    "demora": -1.8, "demorado": -1.9, "demorada": -1.9, "atraso": -1.9, "atrasado": -1.9, "atrasada": -1.9,
+    "defeito": -2.4, "defeituoso": -2.4, "defeituosa": -2.4, "quebrado": -2.4, "quebrada": -2.4,
+    "falha": -2.0, "falhou": -2.2, "erro": -2.0, "erros": -2.0, "bug": -2.0, "bugado": -2.2, "bugada": -2.2,
+    "horripilante": -2.6, "inaceitável": -2.6, "inaceitavel": -2.6,
+    "enganoso": -2.4, "enganosa": -2.4, "mentiroso": -2.4, "mentirosa": -2.4,
+    "não funciona": -2.6, "nao funciona": -2.6, "não funcionou": -2.6, "nao funcionou": -2.6,
+    "péssimo atendimento": -2.8, "pessimo atendimento": -2.8,
+
+    # Negativos moderados
+    "ruins": -1.8, "chato": -1.5, "chata": -1.5, "triste": -1.6,
+    "complicado": -1.5, "complicada": -1.5, "confuso": -1.5, "confusa": -1.5,
+    "demasiado caro": -1.8, "caríssimo": -2.0, "carissima": -2.0,
+
+    # Positivos fortes
+    "amei": 3.2, "amamos": 3.0, "adoro": 2.8, "adorei": 3.0,
+    "ótimo": 3.0, "otimo": 3.0, "ótima": 3.0, "otima": 3.0,
+    "excelente": 3.2, "maravilhoso": 3.2, "maravilhosa": 3.2,
+    "perfeito": 3.1, "perfeita": 3.1, "impecável": 3.0, "impecavel": 3.0,
+    "incrível": 3.0, "incrivel": 3.0, "sensacional": 3.1, "fantástico": 3.1, "fantastico": 3.1,
+    "recomendo": 2.6, "recomendei": 2.4, "recomendado": 2.4,
+    "satisfeito": 2.4, "satisfeita": 2.4, "surpreendente": 2.6, "surpreendido": 2.4, "surpreendida": 2.4,
+    "rápido": 2.2, "rapido": 2.2, "rápida": 2.2, "rapida": 2.2, "agil": 2.0, "ágil": 2.0,
+    "barato": 2.0, "barata": 2.0, "bom": 2.0, "boa": 2.0, "ótimos": 2.6, "otimos": 2.6,
+    "eficiente": 2.2, "eficaz": 2.2, "funciona": 2.0, "funcionou": 2.0,
+    "top": 2.2, "show": 2.0, "maravilha": 2.4,
+
+    # Positivos moderados
+    "legal": 1.6, "bacana": 1.6, "agradável": 1.8, "agradavel": 1.8,
+    "útil": 1.8, "util": 1.8, "bem feito": 1.8, "bem-feito": 1.8,
+}
+
+# Aplica o léxico customizado
+analyzer.lexicon.update(custom_pt_lexicon)
+
 # Prepara a lista de palavras a serem ignoradas (stopwords) em português e inglês.
 stop_words = set(stopwords.words('portuguese')).union(set(stopwords.words('english')))
 
