@@ -2,7 +2,7 @@
 title: Análise de Feedbacks 2.0
 description: Aplicação full-stack para análise automatizada de comentários e avaliações, com importação de TXT/CSV, visualizações interativas e UX otimizada.
 technologies: Python, Flask, JavaScript, HTML5, CSS3
-demo: https://analise-feedbacks.vercel.app/
+demo: https://analise-feedback.vercel.app/
 highlight: true
 image: foto.png
 -->
