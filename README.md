@@ -1,5 +1,4 @@
-<!--
-PORTFOLIO-FEATURED
+<!-- PORTFOLIO-FEATURED
 title: Análise de Feedbacks 2.0
 description: Aplicação full-stack para análise automatizada de comentários e avaliações, com importação de TXT/CSV, visualizações interativas e UX otimizada.
 technologies: Python, Flask, JavaScript, HTML5, CSS3
